@@ -8,7 +8,7 @@
 
  $credenciais['nome'] = $_POST['nome'];
  $credenciais['cpf'] = $_POST['cpf'];
- $credenciais['data_nasc'] = $_POST['data_nasc'];
+ $credenciais['datanasc'] = $_POST['datanasc'];
  $credenciais['email'] = $_POST['email'];
  $credenciais['senha'] = $_POST['senha'];
  $credenciais['telefone'] = $_POST['telefone'];

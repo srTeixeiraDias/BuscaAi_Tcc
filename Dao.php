@@ -27,11 +27,11 @@ class Dao{
 
     public function cadastro($dados){
 
-        $sql = "insert into usuario(nome, cpf, data_nasc, email, senha, telefone) values(:nome, :cpf, :datanasc, :email, :senha, :telefone)";
+        $sql = "insert into usuario(nome, cpf, datanasc, email, senha, telefone) values(:nome, :cpf, :datanasc, :email, :senha, :telefone)";
         $resultado = $this->dao->prepare($sql);
         $resultado->bindParam(':nome', $dados['nome']);
         $resultado->bindParam(':cpf', $dados['cpf']);
-        $resultado->bindParam(':datanasc', $dados['data_nasc']);
+        $resultado->bindParam(':datanasc', $dados['datanasc']);
         $resultado->bindParam(':email', $dados['email']);
         $resultado->bindParam(':senha', $dados['senha']);
         $resultado->bindParam(':telefone', $dados['telefone']);
