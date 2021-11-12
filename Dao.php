@@ -57,6 +57,8 @@ class Dao{
         
         echo count($retorno);
         return $retorno;
+        $qntdprod = count($retorno);
+        echo $qntdprod;
     }
     
 }

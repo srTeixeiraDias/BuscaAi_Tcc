@@ -1,3 +1,7 @@
+<?php include "Dao.php"; 
+
+$dao = new Dao(); ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -68,7 +72,8 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     <?php
-        for ($i=0; $i <46 ; $i++)
+        $qntdprod = $dao->selectteste();
+        for ($i=0; $i <$qntdprod ; $i++)
         { ?>
       <div class="col">
         <div class="card shadow-sm">
