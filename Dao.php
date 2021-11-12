@@ -47,5 +47,16 @@ class Dao{
             return false;
         }
     }
+
+    public function selectteste ()
+    {
+        $sql = "select * from produto";
+        $resultado = $this->dao->prepare($sql);
+        $resultado->execute();
+        $retorno = $resultado->fetchAll();
+        
+        echo count($retorno);
+        return $retorno;
+    }
     
 }
