@@ -82,6 +82,7 @@ $dao = new Dao(); ?>
           <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: صورة مصغرة" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">IMAGEM DO PRODUTO</text></svg>
           <div class="card-body">
             <p class="card-text"><?php echo $linha['titulo'] ?></p>
+            <p class="card-text"> R$ <?php echo $linha['preco'] ?></p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-primary">Tenho Interesse</button>
