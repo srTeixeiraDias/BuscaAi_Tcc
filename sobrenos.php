@@ -18,16 +18,16 @@
       <a class="navbar-brand" href="#"><img src="imagens/buscaaiwhite.png" height="22,5" width="117"></a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="/busca_ai/principal.php">Principal</a>
+          <a class="nav-link " aria-current="page" href="./principal.php">Principal</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">Minha Loja</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/busca_ai/faleconosco.php">Fale Conosco</a>
+          <a class="nav-link" href="./faleconosco.php">Fale Conosco</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active"  href="/busca_ai/sobrenos.php">Sobre Nós</a>
+          <a class="nav-link active"  href="./sobrenos.php">Sobre Nós</a>
         </li>
       </ul>
 
