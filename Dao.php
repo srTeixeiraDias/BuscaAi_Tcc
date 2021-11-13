@@ -55,10 +55,19 @@ class Dao{
         $resultado->execute();
         $retorno = $resultado->fetchAll();
         
-        echo count($retorno);
-        return $retorno;
         $qntdprod = count($retorno);
-        echo $qntdprod;
+        return $qntdprod;
+        
+    }
+
+    public function retornoprodutos()
+    {
+        $sql = "select * from produto order by id desc";
+        $resultado = $this->dao->prepare($sql);
+        $resultado->execute();
+        $retorno = $resultado->fetchAll();
+
+        return $retorno;
     }
     
 }

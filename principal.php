@@ -73,25 +73,29 @@ $dao = new Dao(); ?>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     <?php
         $qntdprod = $dao->selectteste();
-        for ($i=0; $i <$qntdprod ; $i++)
+        $produtos = $dao->retornoprodutos();
+
+        foreach($produtos as $linha)
         { ?>
-      <div class="col">
+          <div class="col">
         <div class="card shadow-sm">
           <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: صورة مصغرة" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">IMAGEM DO PRODUTO</text></svg>
           <div class="card-body">
-            <p class="card-text">O titulo do seu produto vai</p>
+            <p class="card-text"><?php echo $linha['titulo'] ?></p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-primary">Tenho Interesse</button>
                 <button type="button" class="btn btn-sm btn-outline-secondary">Ofertar Agora</button>
               </div>
-              <small class="text-muted">Hora da publicação</small>
+              <small class="text-muted"><?php echo $linha['hora'] ?></small>
+              <small class="text-muted"><?php echo $linha['datap'] ?></small>
             </div>
           </div>
         </div>
       </div> 
-      <?php
-        } ?>
+        <?php } 
+        
+         ?>
     </div>
   </div>
 </div>
