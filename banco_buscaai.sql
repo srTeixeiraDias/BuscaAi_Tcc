@@ -41,6 +41,13 @@ hora time not null,
 datap date not null
 );
 
+create table imagensProduto(
+id int auto_increment primary key,
+path_img text not null,
+id_produto int,
+foreign key (id_produto) references produto(id)
+);
+
 
 create table comentario(
 id int auto_increment primary key,
@@ -60,6 +67,3 @@ foreign key (id_usuario_interesse_fk) references usuario(id),
 foreign key (id_produto_interesse_fk) references produto(id),
 foreign key (id_loja_interesse_fk) references loja(id)
 );
-
-
-
