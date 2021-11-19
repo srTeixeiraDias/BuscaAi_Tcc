@@ -4,17 +4,17 @@
  require_once("./Dao.php");
  
  
- $db = new Dao();
+ $dao = new Dao();
 
  $credenciais['titulo'] = $_POST['titulo'];
  $credenciais['preco'] = $_POST['preco'];
  $credenciais['categoria'] = $_POST['categoria'];
  $credenciais['descricao'] = $_POST['descricao'];
- //$credenciais['hora'] = $_POST['hora'];
-// $credenciais['datap'] = $_POST['datap'];
+ //$credenciais[date("H.i.s")] = $_POST['hora'];
+ //$credenciais[date("Y-m-d")] = $_POST['datap'];
 
  
- if($db->cadastroProdutos($credenciais)){
+ if($dao->cadastroProdutos($credenciais)){
     $message = "Cadastrado com sucesso";
     echo "<script type='text/javascript'>alert('$message');</script>";
     

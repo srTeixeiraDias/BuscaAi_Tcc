@@ -82,14 +82,14 @@ class Dao{
 
     public function cadastroProdutos($dados)
     {
-        $sql = "insert into produto values (null, :titulo, :preco, :categoria, :descricao, :hora, :datap)";
+        $sql = "insert into produto values (null, :titulo, :preco, :categoria, :descricao, '00:00:00', '2021-11-19')";
         $resultado = $this->dao->prepare($sql);
         $resultado->bindParam(':titulo', $dados['titulo']);
         $resultado->bindParam(':preco', $dados['preco']);
         $resultado->bindParam(':categoria', $dados['categoria']);
         $resultado->bindParam(':descricao', $dados['descricao']);
-        $resultado->bindParam(':hora', $dados[date("H.i.s")]);
-        $resultado->bindParam(':datap', $dados[date("Y-m-d")]);
+       // $resultado->bindParam(':hora', $dados[date("H.i.s")]);
+       // $resultado->bindParam(':datap', $dados[date("Y-m-d")]);
  
         $retorno = $resultado->execute();
         if(isset($retorno)) {
@@ -98,8 +98,8 @@ class Dao{
             $_SESSION['preco']=$dados['preco'];
             $_SESSION['categoria']=$dados['categoria'];
             $_SESSION['descricao']=$dados['descricao'];
-            $_SESSION['hora']= date("H.i.s");
-            $_SESSION['datap']= date("Y-m-d");
+          //  $_SESSION['hora']= $dados[date("H.i.s")];
+          //  $_SESSION['datap']= $dados[date("Y-m-d")];
             return true;
 
         }else {
