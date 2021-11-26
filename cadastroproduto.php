@@ -18,13 +18,6 @@
       </div>
     </nav>
 
-    <body id="bodycad">
-  <nav class="navbar fixed-top navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="navlogo"><img src="imagens/buscaaiwhite.png" height="22,5" width="117"></a>
-        <a class="navbar-brand" face="Malgun Gothic" href="#">Sobre nós</a>
-      </div>
-    </nav>
 <div id="cadastro">
       <form method="Post" action="processaCadastroProduto.php">   
       <h1><font size="6" face="Malgun Gothic" id="titulocad"><center>Cadastro de produtos</center></font></h1><br>
@@ -42,7 +35,7 @@
 
         foreach($categorias as $linha)
         { ?>
-        <option value=""><?php echo $linha['categoria'] ?></option>
+        <option value="<?php echo $linha['id'] ?>"><?php echo $linha['categoria'] ?></option>
         <?php } ?>
         </select>
         <font face="Malgun Gothic" size="4">Imagem:</font> <br>

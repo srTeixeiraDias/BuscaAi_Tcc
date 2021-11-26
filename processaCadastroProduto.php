@@ -3,15 +3,16 @@
 //efetua o cadastro do usuario no banco de dados
  require_once("./Dao.php");
  
- 
+ date_default_timezone_set("America/Sao_Paulo");
+
  $dao = new Dao();
 
  $credenciais['titulo'] = $_POST['titulo'];
  $credenciais['preco'] = $_POST['preco'];
  $credenciais['categoria'] = $_POST['categoria'];
  $credenciais['descricao'] = $_POST['descricao'];
- //$credenciais[date("H.i.s")] = $_POST['hora'];
- //$credenciais[date("Y-m-d")] = $_POST['datap'];
+ $credenciais['hora'] = date("H:i:s");
+ $credenciais['datap'] =date("Y-m-d");
 
  
  if($dao->cadastroProdutos($credenciais)){
