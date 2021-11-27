@@ -1,8 +1,4 @@
-<!--**
- * @author Cesar Szpak - Celke -   cesar@celke.com.br
- * @pagina desenvolvida usando https://viacep.com.br,
- * webservice gratuito, acessado 15/07/2016.
- *-->
+
 <html>
     <head>
     <title>ViaCEP Webservice</title>
