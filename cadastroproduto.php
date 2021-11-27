@@ -42,7 +42,8 @@
         </div>
         <br>
         <font face="Malgun Gothic" size="4">Descrição:</font> <br> <textarea rows="10" cols="40" maxlength="500" name="descricao" id="inputcadnome"></textarea> <br>
-        <font face="Malgun Gothic" size="4" >Preço:</font><br><input type="text" placeholder="R$ ___.___" name="preco" id="inputcadnome" value="">
+        <font face="Malgun Gothic" size="4" >Preço:</font><br><input type="text" placeholder="R$ ___.___" name="preco" id="inputcadnome">
+
         <input type= "submit" value = "enviar">
       </form>
     </div>
