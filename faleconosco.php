@@ -7,7 +7,7 @@
     <?php include "bootstrap.php"?>
     <title>Fale Conosco</title>
 </head>
-<body>
+<body style= "padding-bottom: 124px;">
 <div class="card text-center">
   <div class="card-header">
     Destaque

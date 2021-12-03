@@ -7,7 +7,7 @@
     <title>Sobre Nos</title>
     <?php include"bootstrap.php"?>
 </head>
-<body>
+<body style= "padding-bottom: 124px;">
 
 <nav class="navbar navbar-expand-lg navbar navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
