@@ -19,10 +19,22 @@ class Dao{
         $resultado->execute();
         $retorno = $resultado->fetch(PDO::FETCH_ASSOC);
         if($retorno['email'] == $email && $retorno['senha'] == $senha){
+            if (isset($retorno))
+         {
+             session_start();
+             $_SESSION['nome']= $retorno['nome'];
+             $_SESSION['email']= $retorno['email'];
+             $_SESSION['id']= $retorno['id'];
+         }
+
             return true;
+
+            
         } else {
              return false;
          }
+
+         
     }
 
     public function cadastro($dados){
@@ -41,6 +53,54 @@ class Dao{
             $_SESSION['email']=$dados['email'];
             $_SESSION['senha']=$dados['senha'];
             $_SESSION['nome']=$dados['nome'];
+            return true;
+
+        }else {
+            return false;
+        }
+    }
+
+    public function cadastroLoja($dados, $caminho){
+
+        $sql = "insert into loja values(null, :loja, :img, :descricao, :cpf, :id_usuario)";
+        $resultado = $this->dao->prepare($sql);
+        $resultado->bindParam(':loja', $dados['nome']);
+        $resultado->bindParam(':img', $caminho);
+        $resultado->bindParam(':descricao', $dados['descricao']);
+        $resultado->bindParam(':cpf', $dados['cnpj']);
+        $resultado->bindParam(':id_usuario', $dados['id_usuario_fk']);
+        $retorno = $resultado->execute();
+        if(isset($retorno)) {
+            $sql = "select id from loja where cnpj= :cpf";
+            $resultado2 = $this->dao->prepare($sql);
+            $resultado2->bindParam(':cpf', $dados['cnpj']);
+            $resultado2->execute();
+            $retornoid = $resultado2->fetchAll();
+
+            session_start();
+            $_SESSION['id_loja']= $retornoid[0]["id"];
+            echo $_SESSION['id_loja'];
+
+
+            return true;
+
+        }else {
+            return false;
+        }
+    }
+
+    public function cadastroEndereco($dados){
+
+        $sql = "insert into endereco values(null, :cep, :rua, :bairro, :uf, :num, :id_loja)";
+        $resultado = $this->dao->prepare($sql);
+        $resultado->bindParam(':cep', $dados['cep']);
+        $resultado->bindParam(':rua', $dados['rua']);
+        $resultado->bindParam(':num', $dados['numero']);
+        $resultado->bindParam(':bairro', $dados['bairro']);
+        $resultado->bindParam(':uf', $dados['uf']);
+        $resultado->bindParam(':id_loja', $dados['id_loja_fk']);
+        $retorno = $resultado->execute();
+        if(isset($retorno)) {
             return true;
 
         }else {
@@ -70,6 +130,43 @@ class Dao{
         return $retorno;
     }
 
+    public function retornoprodutosloja($id_user)
+    {
+        $sql = "select * from produto where id_usuario_fk = :id order by id desc";
+        $resultado = $this->dao->prepare($sql);
+        $resultado->bindParam(':id', $id_user);
+        $resultado->execute();
+        $retorno = $resultado->fetchAll();
+
+        return $retorno;
+    }
+
+    public function retornoloja($id_user)
+    {
+        $sql = "select * from loja where id_usuario_fk = :id";
+        $resultado = $this->dao->prepare($sql);
+        $resultado->bindParam(':id', $id_user);
+        $resultado->execute();
+        $retorno = $resultado->fetch(PDO::FETCH_ASSOC);
+        if (isset($retorno))
+         {
+             $_SESSION['id_loja_fk']= $retorno['id'];
+         }
+
+        return $retorno;
+    }
+    public function retornoendereco($id)
+    {
+        $sql = "select * from endereco where id_loja_fk = :id";
+        $resultado = $this->dao->prepare($sql);
+        $resultado->bindParam(':id', $id);
+        $resultado->execute();
+        $retorno = $resultado->fetch(PDO::FETCH_ASSOC);
+
+    
+        return $retorno;
+    }
+
     public function retornoprodutosPesquisa($pesq)
     {
         $sql = "select * from produto where titulo like :pesq or categoria like :pesq order by id desc";
@@ -93,7 +190,7 @@ class Dao{
 
     public function cadastroProdutos($dados, $caminho)
     {
-        $sql = "insert into produto values (null, :titulo, :preco, :img, :categoria, :descricao, :hora, :datap)";
+        $sql = "insert into produto values (null, :titulo, :preco, :img, :categoria, :descricao, :hora, :datap, :id_loja_fk)";
         $resultado = $this->dao->prepare($sql);
         $resultado->bindParam(':titulo', $dados['titulo']);
         $resultado->bindParam(':preco', $dados['preco']);
@@ -102,6 +199,7 @@ class Dao{
         $resultado->bindParam(':descricao', $dados['descricao']);
         $resultado->bindParam(':hora', $dados['hora']);
         $resultado->bindParam(':datap', $dados['datap']);
+        $resultado->bindParam(':id_loja_fk', $dados['id_loja_fk']);
  
         $retorno = $resultado->execute();
 
